@@ -1089,6 +1089,9 @@ public class PreferenceHelper {
         prefs.edit().putString(PreferenceNames.OPENSTREETMAP_VISIBILITY, visibility).apply();
     }
 
+    public SharedPreferences getSharedPreferences() {
+        return prefs;
+    }
 
     /**
      * Whether to auto send to OpenStreetMap
