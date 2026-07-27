@@ -1082,7 +1082,7 @@ public class PreferenceHelper {
      */
     @ProfilePreference(name= PreferenceNames.OPENSTREETMAP_VISIBILITY)
     public String getOSMVisibility() {
-        return prefs.getString(PreferenceNames.OPENSTREETMAP_VISIBILITY, "private");
+        return prefs.getString(PreferenceNames.OPENSTREETMAP_VISIBILITY, "trackable");
     }
 
     public void setOSMVisibility(String visibility){

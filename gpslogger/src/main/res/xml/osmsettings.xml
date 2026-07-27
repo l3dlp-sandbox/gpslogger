@@ -14,7 +14,7 @@
         app:iconSpaceReserved="false" />
 
     <Preference
-        android:defaultValue="private"
+        android:defaultValue="trackable"
         android:entries="@array/osm_visibility_choices"
         android:entryValues="@array/osm_visibility_choices"
         android:key="osm_visibility"
