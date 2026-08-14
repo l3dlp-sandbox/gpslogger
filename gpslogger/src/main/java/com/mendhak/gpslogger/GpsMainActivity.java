@@ -163,6 +163,7 @@ public class GpsMainActivity extends AppCompatActivity
         setUpNavigationDrawer(savedInstanceState);
 
         loadDefaultFragmentView();
+        handleVersionChanges();
 
 
         if(!Systems.hasUserGrantedAllNecessaryPermissions(this)){
@@ -187,6 +188,21 @@ public class GpsMainActivity extends AppCompatActivity
                 EventBus.getDefault().postSticky(new CommandEvents.RequestStartStop(false));
                 logSinglePoint();
             }
+        }
+    }
+    private void handleVersionChanges() {
+        int currentVersion = BuildConfig.VERSION_CODE;
+        if (preferenceHelper.getLastVersionSeen() < currentVersion) {
+            String visibility = preferenceHelper.getSharedPreferences().getString(PreferenceNames.OPENSTREETMAP_VISIBILITY, null);
+            if (visibility != null && ("public".equals(visibility) || "private".equals(visibility))) {
+                preferenceHelper.setOSMVisibility("trackable");
+                SimpleDialog.build()
+                        .msg(R.string.osm_visibility_migration_message)
+                        .pos(R.string.ok)
+                        .cancelable(false)
+                        .show(this);
+            }
+            preferenceHelper.setLastVersionSeen(currentVersion);
         }
     }
 

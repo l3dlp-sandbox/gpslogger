@@ -225,6 +225,7 @@
 
     <string name="osm_description">Description</string>
     <string name="osm_description_summary">The description to use when uploading a trace</string>
+    <string name="osm_visibility_migration_message">OpenStreetMap is removing "public" and "private" GPS trace visibility options. Your setting has been updated to "trackable" to avoid errors.</string>
     <string name="osm_tags">Tags</string>
     <string name="osm_tags_summary">The tags to apply when uploading a trace</string>
 

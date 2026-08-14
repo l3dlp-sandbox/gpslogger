@@ -1082,13 +1082,16 @@ public class PreferenceHelper {
      */
     @ProfilePreference(name= PreferenceNames.OPENSTREETMAP_VISIBILITY)
     public String getOSMVisibility() {
-        return prefs.getString(PreferenceNames.OPENSTREETMAP_VISIBILITY, "private");
+        return prefs.getString(PreferenceNames.OPENSTREETMAP_VISIBILITY, "trackable");
     }
 
     public void setOSMVisibility(String visibility){
         prefs.edit().putString(PreferenceNames.OPENSTREETMAP_VISIBILITY, visibility).apply();
     }
 
+    public SharedPreferences getSharedPreferences() {
+        return prefs;
+    }
 
     /**
      * Whether to auto send to OpenStreetMap
